@@ -1,4 +1,4 @@
-package com.taopaokuzi.train.member.aspect;
+package com.taopaokuzi.train.common.aspect;
 
 import cn.hutool.core.util.RandomUtil;
 import com.alibaba.fastjson.JSONObject;
@@ -9,7 +9,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
-import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
@@ -19,7 +22,6 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 
-
 @Aspect //切面
 @Component //这样才可以被扫描到
 public class LogAspect {
@@ -27,7 +29,7 @@ public class LogAspect {
     private static final Logger LOG = LoggerFactory.getLogger(LogAspect.class);
 
     public LogAspect() {
-        System.out.println("LogAspect 被创建");
+        System.out.println("Common LogAspect 被创建");
     }
 
     /**
