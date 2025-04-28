@@ -1,3 +1,7 @@
+
+# 本地系统目录（Windows）
+AppData/
+
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
