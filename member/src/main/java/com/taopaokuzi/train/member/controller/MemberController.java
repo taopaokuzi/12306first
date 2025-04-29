@@ -1,0 +1,20 @@
+package com.taopaokuzi.train.member.controller;
+
+
+import com.taopaokuzi.train.member.service.MemberService;
+import jakarta.annotation.Resource;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/member")
+public class MemberController {
+    @Resource
+    private MemberService memberService;
+    @GetMapping("/count")//进入到这的方法，都会拼上前面的/member
+    public Integer count() {
+
+        return memberService.count();
+    }
+}
