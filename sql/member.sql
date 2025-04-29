@@ -7,3 +7,7 @@ create table `member` (
 ) engine=innodb default charset=utf8mb4 comment='会员';
 INSERT INTO `member` (`id`, `mobile`)
 VALUES (1, '12345678901');
+CREATE TABLE passenger (
+                           id BIGINT PRIMARY KEY,
+                           name VARCHAR(255)
+);
