@@ -73,7 +73,7 @@ public class LogAspect {
         }
 
         // 排除字段，敏感信息不打印，如手机号、邮箱、密码等，不能打印在日志里面
-        String[] excludeProperties = {"password", "file", "mobile", "email"};
+        String[] excludeProperties = {};
         PropertyPreFilters filters = new PropertyPreFilters();
         PropertyPreFilters.MySimplePropertyPreFilter excludeFilter = filters.addFilter();
         excludeFilter.addExcludes(excludeProperties);
