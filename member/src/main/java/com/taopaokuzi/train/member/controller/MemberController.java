@@ -3,6 +3,7 @@ package com.taopaokuzi.train.member.controller;
 
 import com.taopaokuzi.train.common.resp.CommonResp;
 import com.taopaokuzi.train.member.req.MemberRegisterReq;
+import com.taopaokuzi.train.member.req.MemberSendCodeReq;
 import com.taopaokuzi.train.member.service.MemberService;
 import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
@@ -27,5 +28,10 @@ public class MemberController {
     public CommonResp <Long> register(@Valid MemberRegisterReq req) {
         long register = memberService.register(req);
         return new CommonResp<>(register);
+    }
+    @PostMapping("/send-code")//进入到这的方法，都会拼上前面的/member
+    public CommonResp <Long> sendCode(@Valid MemberSendCodeReq req) {
+        memberService.sendCode(req);
+        return new CommonResp<>();
     }
 }
