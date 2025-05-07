@@ -41,8 +41,7 @@
 import { defineComponent, reactive } from 'vue';
 import axios from 'axios';
 import { notification } from 'ant-design-vue';
-//import { useRouter } from 'vue-router'
-//import store from "@/store";
+
 
 export default defineComponent({
   name: "login-view",
@@ -54,7 +53,7 @@ export default defineComponent({
     });
 
     const sendCode = () => {
-      axios.post("http://localhost:8000/member/member/send-code", {//请求
+      axios.post("/member/member/send-code", {//请求
         mobile: loginForm.mobile//传递参数
       }).then(response => {//调用结束后的回调函数，得到一个结果
         let data = response.data;//response.data==后端的CommonResp，得到结果的data对应后端的CommonResp
@@ -68,7 +67,7 @@ export default defineComponent({
     };
 
     const login = () => {
-      axios.post("http://localhost:8000/member/member/login", loginForm).then((response) => {//传递实体的写法
+      axios.post("/member/member/login", loginForm).then((response) => {//传递实体的写法
         let data = response.data;
         if (data.success) {
           notification.success({ description: '登录成功！' });
