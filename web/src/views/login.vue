@@ -55,9 +55,9 @@ export default defineComponent({
     });
 
     const sendCode = () => {
-      axios.post("/member/member/send-code", {
+      axios.post("http://localhost:8001/member/member/send-code", {
         mobile: loginForm.mobile
-      }).then(response => {
+      }).then(response => {//调用结束后的回调函数
         let data = response.data;
         if (data.success) {
           notification.success({ description: '发送验证码成功！' });
@@ -69,7 +69,7 @@ export default defineComponent({
     };
 
     const login = () => {
-      axios.post("/member/member/login", loginForm).then((response) => {
+      axios.post("http://localhost:8001/member/member/login", loginForm).then((response) => {
         let data = response.data;
         if (data.success) {
           notification.success({ description: '登录成功！' });
