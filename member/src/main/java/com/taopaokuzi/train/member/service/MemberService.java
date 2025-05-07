@@ -18,13 +18,13 @@ import com.taopaokuzi.train.member.resp.MemberLoginResp;
 import jakarta.annotation.Resource;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Service
 public class MemberService {
-    private static final Logger LOG = (Logger) LoggerFactory.getLogger(MemberService.class);
+    private static final Logger LOG = LoggerFactory.getLogger(MemberService.class);
     @Resource
     private MemberMapper memberMapper;
     public int count(){

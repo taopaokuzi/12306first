@@ -34,7 +34,7 @@ public class MemberController {
         return new CommonResp<>();
     }
     @PostMapping("/login")//进入到这的方法，都会拼上前面的/member
-    public CommonResp <MemberLoginResp> login(@Valid MemberLoginReq req) {
+    public CommonResp <MemberLoginResp> login(@Valid @RequestBody MemberLoginReq req) {
         MemberLoginResp resp = memberService.login(req);
         return new CommonResp<MemberLoginResp>(resp);
     }

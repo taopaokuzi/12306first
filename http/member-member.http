@@ -1,25 +1,29 @@
 ###
-GET http://localhost:8001/member/member/count
+GET http://localhost:8000/member/member/count
 Accept: application/json
 
 
 ###
-POST http://localhost:8001/member/member/register
+POST http://localhost:8000/member/member/register
 Content-Type:application/x-www-form-urlencoded
 
 mobile=123456455
 
 ###
-POST http://localhost:8001/member/member/send-code
+POST http://localhost:8000/member/member/send-code
 Content-Type:application/json
 
 {
-  "mobile": "1234564551"
+  "mobile": "12345645510"
 }
 
 
 ###
-POST http://localhost:8001/member/member/login
-Content-Type:application/x-www-form-urlencoded
+POST http://localhost:8000/member/member/login
+Content-Type:application/json
 
-mobile=1234564551&code=1234
+{
+  "mobile": "12345645510",
+  "code": "8888"
+}
+
