@@ -3,18 +3,25 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import axios from 'axios';
-import Antd, {notification} from 'ant-design-vue';
-import 'ant-design-vue/dist/reset.css'; // ✔ 正确用法
+import Antd, { notification } from 'ant-design-vue';
+import 'ant-design-vue/dist/reset.css';
 import * as Icons from '@ant-design/icons-vue';
 
 const app = createApp(App);
-app.use(Antd).use(store).use(router).mount('#app')
 
-//全局使用图标
-const icons=Icons;
-for(const i in icons){
-    app.component(i,icons[i]);
+// 插件注册（顺序要在 mount 前）
+app.use(Antd);
+app.use(store);
+app.use(router);
+
+// 注册所有图标
+const icons = Icons;
+for (const i in icons) {
+    app.component(i, icons[i]);
 }
+
+// 最后挂载
+app.mount('#app');
 
 /**
  * axios拦截器
