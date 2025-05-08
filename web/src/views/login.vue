@@ -41,7 +41,8 @@
 import { defineComponent, reactive } from 'vue';
 import axios from 'axios';
 import { notification } from 'ant-design-vue';
-import {useRouter} from 'vue-router' //useRouter是管理全局的路由，useRoute用来获取当前页面的地址参数
+import {useRouter} from 'vue-router'
+import store from "@/store"; //useRouter是管理全局的路由，useRoute用来获取当前页面的地址参数
 
 export default defineComponent({
   name: "login-view",
@@ -74,6 +75,7 @@ export default defineComponent({
           notification.success({ description: '登录成功！' });
           //登陆成功，跳到控制台主页
           router.push("/");
+          store.commit("setMember",data.content);
         } else {
           notification.error({ description: data.message });
         }
