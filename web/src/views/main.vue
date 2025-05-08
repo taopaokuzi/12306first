@@ -56,7 +56,7 @@
         <a-layout-content
             :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '280px' }"
         >
-          Content
+          所有会员总数:{{count}}
         </a-layout-content>
       </a-layout>
     </a-layout>
@@ -66,6 +66,8 @@
 import {UserOutlined,LaptopOutlined,NotificationOutlined} from "@ant-design/icons-vue";
 import { defineComponent,ref } from 'vue';
 import TheHeaderView from "@/components/the-header.vue";
+import axios from "axios";
+import {notification} from "ant-design-vue";
 export default defineComponent({
   components:{
     TheHeaderView,
@@ -74,10 +76,20 @@ export default defineComponent({
     NotificationOutlined,
   },
   setup(){
+    const count=ref(0);
+    axios.get("/member/member/count").then((response) => {//传递实体的写法
+      let data = response.data;
+      if (data.success) {
+        count.value=data.content;
+      } else {
+        notification.error({ description: data.message });
+      }
+    })
     return{
       selectedKeys2 : ref(['1']),
       collapsed:ref(false),
       openKeys : ref(['sub1']),
+      count,
     }
   }
 })
