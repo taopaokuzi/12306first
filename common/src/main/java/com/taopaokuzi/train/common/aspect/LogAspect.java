@@ -43,9 +43,6 @@ public class LogAspect {
      */
     @Before("controllerPointcut()")//前置通知，还没调用到方法之前，先执行before里的方法
     public void doBefore(JoinPoint joinPoint) {
-        // 加入日志流水号,系统参数+随机生成
-        MDC.put("LOG_ID", System.currentTimeMillis() + RandomUtil.randomString(3));
-
         // 开始打印请求日志
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
