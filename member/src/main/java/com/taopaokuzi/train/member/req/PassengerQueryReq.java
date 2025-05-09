@@ -1,5 +1,8 @@
 package com.taopaokuzi.train.member.req;
-    public class PassengerQueryReq  {
+
+import com.taopaokuzi.train.common.req.PageReq;
+
+public class PassengerQueryReq  extends PageReq {
 
         private Long memberId;
 
