@@ -6,6 +6,7 @@ import com.taopaokuzi.train.common.resp.CommonResp;
 import com.taopaokuzi.train.member.domain.Passenger;
 import com.taopaokuzi.train.member.req.PassengerQueryReq;
 import com.taopaokuzi.train.member.req.PassengerSaveReq;
+import com.taopaokuzi.train.member.resp.PageResp;
 import com.taopaokuzi.train.member.resp.PassengerQueryResp;
 import com.taopaokuzi.train.member.service.MemberService;
 import com.taopaokuzi.train.member.service.PassengerService;
@@ -26,9 +27,9 @@ public class PassengerController {
         return new CommonResp<>();
     }
     @GetMapping("/query-list")//进入到这的方法，都会拼上前面的/member
-    public CommonResp <List<PassengerQueryResp>> queryList(@Valid  PassengerQueryReq req) {
+    public CommonResp <PageResp<PassengerQueryResp>> queryList(@Valid  PassengerQueryReq req) {
         req.setMemberId(LoginMemberContext.getId());
-        List<PassengerQueryResp> list= passengerService.queryList(req);//查询需要返回值
+        PageResp<PassengerQueryResp> list= passengerService.queryList(req);//查询需要返回值
         return new CommonResp<>(list);
     }
 }
