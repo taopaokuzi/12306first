@@ -37,6 +37,8 @@ public class PassengerService {
     }
     public PageResp<PassengerQueryResp> queryList(PassengerQueryReq req){
         PassengerExample passengerExample= new PassengerExample();
+        PassengerExample example = new PassengerExample();
+        example.setOrderByClause("id desc");
         PassengerExample.Criteria criteria=passengerExample.createCriteria();//要把它放到外部，如果多个if的话，那么会以最后一个if里的create为准
         if(ObjectUtil.isNotNull(req.getMemberId())){
             criteria.andMemberIdEqualTo(req.getMemberId());

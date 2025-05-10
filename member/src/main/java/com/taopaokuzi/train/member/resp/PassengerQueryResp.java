@@ -1,8 +1,13 @@
 package com.taopaokuzi.train.member.resp;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+
 import java.util.Date;
 
 public class PassengerQueryResp {
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long id;
 
     private Long memberId;
@@ -12,9 +17,9 @@ public class PassengerQueryResp {
     private String idCard;
 
     private String type;
-
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
-
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date updateTime;
 
     public Long getId() {
