@@ -1,5 +1,6 @@
 package com.taopaokuzi.train.member.req;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -14,9 +15,9 @@ public class PassengerSaveReq {
     private String idCard;
     @NotBlank(message = "[旅客类型]不能为空")
     private String type;
-
+    @JsonFormat(pattern = "yyy-MM-dd HH:mm:ss",timezone = "GMT8")
     private Date createTime;
-
+    @JsonFormat(pattern = "yyy-MM-dd HH:mm:ss",timezone = "GMT8")
     private Date updateTime;
 
     public Long getId() {

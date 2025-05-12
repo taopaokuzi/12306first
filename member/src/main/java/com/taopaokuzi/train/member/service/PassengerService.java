@@ -29,13 +29,14 @@ public class PassengerService {
     public void save(PassengerSaveReq req){
         DateTime now= DateTime.now();
         Passenger passenger= BeanUtil.copyProperties(req,Passenger.class);
-        if(ObjectUtil.isNull(passenger.getId())) {
+        if(ObjectUtil.isNull(req.getId())) {
             passenger.setMemberId(LoginMemberContext.getId());
             passenger.setId(SnowUtil.getSnowflakeNextId());
             passenger.setCreateTime(now);
             passenger.setUpdateTime(now);
             passengerMapper.insert(passenger);
         }else {
+            passenger.setMemberId(LoginMemberContext.getId());
             passenger.setUpdateTime(now);
             passengerMapper.updateByPrimaryKey(passenger);
         }

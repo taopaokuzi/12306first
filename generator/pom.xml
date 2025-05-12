@@ -16,7 +16,22 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
+        <dependencies>
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>com.example</groupId>
+                <artifactId>member</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+                <scope>compile</scope>
+            </dependency>
+        </dependencies>
     <build>
         <plugins>
             <!-- mybatis generator 自动生成代码插件 -->
@@ -27,6 +42,7 @@
                 <configuration>
                     <!--<configurationFile>src/main/resources/generator-config-member.xml</configurationFile>-->
                     <configurationFile>src/main/resources/generator-config-member.xml</configurationFile>
+                    <!--<configurationFile>src/main/resources/generator-config-business.xml</configurationFile>-->
                     <!--<configurationFile>src/main/resources/generator-config-batch.xml</configurationFile>-->
                     <overwrite>true</overwrite>
                     <verbose>true</verbose>
